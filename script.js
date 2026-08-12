@@ -12,12 +12,17 @@ for(let i=1;i<17;i++){
         container.appendChild(parentElement);
         parentElement.appendChild(childElement);
 
-        // childElement.addEventListener("onmouseover" , function(e) {
-
-        // })
-        // childElement.addEventListener("onmouseout" , function(e) {
-            
-        // })
+        childElement.addEventListener("mouseover" , function(event) {
+            event.target.style.backgroundColor = 
+            `rgb(
+            ${Math.floor(Math.random() * 256)},
+            ${Math.floor(Math.random() * 256)},
+            ${Math.floor(Math.random() * 256)}
+            )`;
+        });
+        childElement.addEventListener("mouseout" , function(event) {
+            event.target.style.backgroundColor = `rgb(255 , 255 , 255)`;
+        });
 
         j++;
     }
@@ -28,11 +33,16 @@ for(let i=1;i<17;i++){
 
         parentElement.appendChild(childElements);
 
-        // childElement.addEventListener("onmouseover" , function(e) {
-
-        // })
-        // childElement.addEventListener("onmouseout" , function(e) {
-
-        // })
+        childElements.addEventListener("mouseover" , function(event) {
+            event.target.style.backgroundColor = 
+            `rgb(
+            ${Math.floor(Math.random() * 256)},
+            ${Math.floor(Math.random() * 256)},
+            ${Math.floor(Math.random() * 256)}
+            )`;
+        });
+        childElements.addEventListener("mouseout" , function(event) {
+            event.target.style.backgroundColor = `rgb(255, 255, 255)`;
+        });
     }
 }
