@@ -35,7 +35,7 @@ button.addEventListener("pointerdown" , function(e) {
                     childElement.classList.add('reduced-padding');
                 }
 
-                childElement.addEventListener("mouseover" , function(event) {
+                childElement.addEventListener("pointerover" , function(event) {
                     event.target.style.backgroundColor = 
                     `rgb(
                     ${Math.floor(Math.random() * 256)},
@@ -43,7 +43,7 @@ button.addEventListener("pointerdown" , function(e) {
                     ${Math.floor(Math.random() * 256)}
                     )`;
                 });
-                childElement.addEventListener("mouseout" , function(event) {
+                childElement.addEventListener("pointerout" , function(event) {
                     event.target.style.backgroundColor = `rgb(255 , 255 , 255)`;
                 });
 
@@ -60,7 +60,7 @@ button.addEventListener("pointerdown" , function(e) {
                     childElements.classList.add('reduced-padding');
                 }
 
-                childElements.addEventListener("mouseover" , function(event) {
+                childElements.addEventListener("pointerover" , function(event) {
                     event.target.style.backgroundColor = 
                     `rgb(
                     ${Math.floor(Math.random() * 256)},
@@ -68,7 +68,7 @@ button.addEventListener("pointerdown" , function(e) {
                     ${Math.floor(Math.random() * 256)}
                     )`;
                 });
-                childElements.addEventListener("mouseout" , function(event) {
+                childElements.addEventListener("pointerout" , function(event) {
                     event.target.style.backgroundColor = `rgb(255, 255, 255)`;
                 });
             }
