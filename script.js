@@ -12,12 +12,12 @@ for(let i=1;i<17;i++){
         container.appendChild(parentElement);
         parentElement.appendChild(childElement);
 
-        childElement.addEventListener("onmouseover" , function(e) {
+        // childElement.addEventListener("onmouseover" , function(e) {
 
-        })
-        childElement.addEventListener("onmouseout" , function(e) {
+        // })
+        // childElement.addEventListener("onmouseout" , function(e) {
             
-        })
+        // })
 
         j++;
     }
@@ -28,11 +28,11 @@ for(let i=1;i<17;i++){
 
         parentElement.appendChild(childElements);
 
-        childElement.addEventListener("onmouseover" , function(e) {
+        // childElement.addEventListener("onmouseover" , function(e) {
 
-        })
-        childElement.addEventListener("onmouseout" , function(e) {
+        // })
+        // childElement.addEventListener("onmouseout" , function(e) {
 
-        })
+        // })
     }
 }
