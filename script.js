@@ -1,6 +1,7 @@
-const container = document.querySelector('div');
+const container = document.querySelector('.container');
 let j = 0;
 let parentElement;
+
 for(let i=1;i<17;i++){
     if(i == (16**0.5)*j + 1 && Math.floor(j) == j) {
         parentElement = document.createElement('div');
