@@ -25,11 +25,11 @@ button {
 }
 .container {
     display:flex;
-    flex-wrap:wrap;
+    flex-wrap:nowrap;
     flex-direction:column;
     row-gap:10px;
     justify-content:center;
-    align-content:center;
+    align-items:center;
     height:100%;
     width:100%;
 }
@@ -50,4 +50,7 @@ button {
     column-gap: 10px;
     flex:0 1 0px;
     background: #1F2937;
+}
+.reduced-padding {
+    padding:30px;
 }
