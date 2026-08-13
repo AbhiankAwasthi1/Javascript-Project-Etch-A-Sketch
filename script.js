@@ -1,76 +1,108 @@
 const container = document.querySelector('.container');
-const button = document.querySelector('button');
 
 let j = 0;
 let parentElement;
 
-button.addEventListener("pointerdown" , function(e) {
-    event.preventDefault();
-    const value = Number(prompt("How many squares per row do you want to display? \n (1 - 10)"));
 
-    if(value > 10 || value < 1) {
-        alert("please enter the numbers in a valid range! (1 - 10)");
-    }
+container.innerHTML = `<button>Change Grids</button>`
+const button = document.querySelector('button');
+document.querySelector('.container').addEventListener('click', function(e) {
+    if (e.target && e.target.tagName === 'BUTTON') {
+        // Handle button click
+        e.preventDefault();
+        const value = Number(prompt("How many squares per row do you want to display? \n (1 - 10)"));
 
-    else if(Number.isNaN(value)) {
-        alert("Please enter a valid number.");
-    }
+        if(value > 10 || value < 1) {
+            alert("please enter the numbers in a valid range! (1 - 10)");
+        }
 
-    else {
-        j = 0;
-        const valueSquared = value**2;
-        container.innerHTML = "";
-        for(let i=1; i<valueSquared + 1; i++){
-            if(i == (valueSquared**0.5)*j + 1) {
-                parentElement = document.createElement('div');
-                const childElement = document.createElement('div');
+        else if(Number.isNaN(value)) {
+            alert("Please enter a valid number.");
+        }
 
-                parentElement.setAttribute('class','parent');
-                childElement.setAttribute('class','child');
+        else {
+            j = 0;
+            const valueSquared = value**2;
+            container.innerHTML = `<button>Change Grids</button>`
+            for(let i=1; i<valueSquared + 1; i++){
+                if(i == (valueSquared**0.5)*j + 1) {
+                    parentElement = document.createElement('div');
+                    const childElement = document.createElement('div');
 
-                container.appendChild(parentElement);
-                parentElement.appendChild(childElement);
+                    parentElement.setAttribute('class','parent');
+                    childElement.setAttribute('class','child');
 
-                if (value > 6) {
-                    childElement.classList.add('reduced-padding');
+                    container.appendChild(parentElement);
+                    parentElement.appendChild(childElement);
+
+                    if (value > 6) {
+                        childElement.classList.add('reduced-padding');
+                    }
+
+                    childElement.addEventListener("pointerover" , function(event) {
+                        event.target.style.backgroundColor = 
+                        `rgb(
+                        ${Math.floor(Math.random() * 256)},
+                        ${Math.floor(Math.random() * 256)},
+                        ${Math.floor(Math.random() * 256)}
+                        )`;
+                    });
+
+                    childElement.dataset.brightness = 1;
+
+                    childElement.addEventListener("pointerout" , function(event) {
+                        let currentBrightness = parseFloat(this.dataset.brightness);
+      
+                        // Decrease brightness by 10% (0.1)
+                        let newBrightness = currentBrightness - 0.1;
+                         if (newBrightness < 0) newBrightness = 0;
+
+                         // FIX 1: Save the new brightness back to the dataset!
+                        event.target.dataset.brightness = newBrightness;
+
+                        // Calculate the RGB value (rgb needs whole numbers)
+                        let rgbValue = Math.round(255 * newBrightness);
+                        event.target.style.backgroundColor = event.target.style.backgroundColor = `rgb(${rgbValue}, ${rgbValue},${rgbValue})`;
+                    });
+
+                    j++;
                 }
+                else {
+                    const childElements = document.createElement('div');
 
-                childElement.addEventListener("mouseover" , function(event) {
-                    event.target.style.backgroundColor = 
-                    `rgb(
-                    ${Math.floor(Math.random() * 256)},
-                    ${Math.floor(Math.random() * 256)},
-                    ${Math.floor(Math.random() * 256)}
-                    )`;
-                });
-                childElement.addEventListener("mouseout" , function(event) {
-                    event.target.style.backgroundColor = `rgb(255 , 255 , 255)`;
-                });
+                    childElements.setAttribute('class','child');
 
-                j++;
-            }
-            else {
-                const childElements = document.createElement('div');
+                    parentElement.appendChild(childElements);
 
-                childElements.setAttribute('class','child');
+                    if (value > 6) {
+                        childElements.classList.add('reduced-padding');
+                    }
 
-                parentElement.appendChild(childElements);
+                    childElements.addEventListener("pointerover" , function(event) {
+                        event.target.style.backgroundColor = 
+                        `rgb(
+                        ${Math.floor(Math.random() * 256)},
+                        ${Math.floor(Math.random() * 256)},
+                        ${Math.floor(Math.random() * 256)}
+                        )`;
+                    });
+                    childElements.dataset.brightness = 1;
 
-                if (value > 6) {
-                    childElements.classList.add('reduced-padding');
+                    childElements.addEventListener("pointerout" , function(event) {
+                        let currentBrightness = parseFloat(this.dataset.brightness);
+      
+                        // Decrease brightness by 10% (0.1)
+                        let newBrightness = currentBrightness - 0.1;
+                         if (newBrightness < 0) newBrightness = 0;
+
+                         // FIX 1: Save the new brightness back to the dataset!
+                        event.target.dataset.brightness = newBrightness;
+
+                        // Calculate the RGB value (rgb needs whole numbers)
+                        let rgbValue = Math.round(255 * newBrightness);
+                        event.target.style.backgroundColor = event.target.style.backgroundColor = `rgb(${rgbValue}, ${rgbValue},${rgbValue})`;
+                    });
                 }
-
-                childElements.addEventListener("mouseover" , function(event) {
-                    event.target.style.backgroundColor = 
-                    `rgb(
-                    ${Math.floor(Math.random() * 256)},
-                    ${Math.floor(Math.random() * 256)},
-                    ${Math.floor(Math.random() * 256)}
-                    )`;
-                });
-                childElements.addEventListener("mouseout" , function(event) {
-                    event.target.style.backgroundColor = `rgb(255, 255, 255)`;
-                });
             }
         }
     }
