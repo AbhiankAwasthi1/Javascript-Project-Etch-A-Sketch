@@ -51,7 +51,7 @@ document.querySelector('.container').addEventListener('click', function(e) {
                     childElement.dataset.brightness = 1;
 
                     childElement.addEventListener("pointerout" , function(event) {
-                        let currentBrightness = parseFloat(this.dataset.brightness);
+                        let currentBrightness = parseFloat(event.target.dataset.brightness);
       
                         // Decrease brightness by 10% (0.1)
                         let newBrightness = currentBrightness - 0.1;
@@ -89,7 +89,7 @@ document.querySelector('.container').addEventListener('click', function(e) {
                     childElements.dataset.brightness = 1;
 
                     childElements.addEventListener("pointerout" , function(event) {
-                        let currentBrightness = parseFloat(this.dataset.brightness);
+                        let currentBrightness = parseFloat(event.target.dataset.brightness);
       
                         // Decrease brightness by 10% (0.1)
                         let newBrightness = currentBrightness - 0.1;
