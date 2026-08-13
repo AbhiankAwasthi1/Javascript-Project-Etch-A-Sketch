@@ -10,9 +10,9 @@ document.querySelector('.container').addEventListener('click', function(e) {
     if (e.target && e.target.tagName === 'BUTTON') {
         // Handle button click
         e.preventDefault();
-        const value = Number(prompt("How many squares per row do you want to display? \n (1 - 10)"));
+        const value = Number(prompt("How many squares per row do you want to display? \n (1 - 100)"));
 
-        if(value > 10 || value < 1) {
+        if(value > 100 || value < 1) {
             alert("please enter the numbers in a valid range! (1 - 10)");
         }
 
@@ -74,9 +74,6 @@ document.querySelector('.container').addEventListener('click', function(e) {
 
                     parentElement.appendChild(childElements);
 
-                    if (value > 6) {
-                        childElements.classList.add('reduced-padding');
-                    }
 
                     childElements.addEventListener("pointerover" , function(event) {
                         event.target.style.backgroundColor = 
