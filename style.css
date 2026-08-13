@@ -11,17 +11,15 @@ body,html {
 body {
     background:#1F2937;
 }
-.btn-container {
-    display:flex;
-    justify-content:center;
-}
 button {
+    flex:none;
     color:#F9FAF8;
     background:#3882F6;
     padding:5px 15px;
     border-radius:3px;
     margin-top:20px;
     size:14px;
+    margin-bottom:15px;
 }
 .container {
     display:flex;
